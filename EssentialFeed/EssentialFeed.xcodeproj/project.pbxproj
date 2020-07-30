@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		725DC14C24D2B04900D54A4F /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725DC14224D2B04900D54A4F /* EssentialFeed.framework */; };
-		725DC15124D2B04900D54A4F /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725DC15024D2B04900D54A4F /* EssentialFeedTests.swift */; };
 		725DC15324D2B04900D54A4F /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 725DC14524D2B04900D54A4F /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		725DC15E24D2B0CD00D54A4F /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725DC15D24D2B0CD00D54A4F /* FeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +27,8 @@
 		725DC14524D2B04900D54A4F /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		725DC14624D2B04900D54A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		725DC14B24D2B04900D54A4F /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		725DC15024D2B04900D54A4F /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		725DC15224D2B04900D54A4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		725DC15D24D2B0CD00D54A4F /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				725DC14524D2B04900D54A4F /* EssentialFeed.h */,
+				725DC15D24D2B0CD00D54A4F /* FeedItem.swift */,
 				725DC14624D2B04900D54A4F /* Info.plist */,
 			);
 			path = EssentialFeed;
@@ -80,7 +81,6 @@
 		725DC14F24D2B04900D54A4F /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				725DC15024D2B04900D54A4F /* EssentialFeedTests.swift */,
 				725DC15224D2B04900D54A4F /* Info.plist */,
 			);
 			path = EssentialFeedTests;
@@ -148,6 +148,7 @@
 				TargetAttributes = {
 					725DC14124D2B04900D54A4F = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 					725DC14A24D2B04900D54A4F = {
 						CreatedOnToolsVersion = 11.6;
@@ -195,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725DC15E24D2B0CD00D54A4F /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725DC15124D2B04900D54A4F /* EssentialFeedTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +340,7 @@
 		725DC15724D2B04900D54A4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -356,6 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = chihyinwang.is.this.EssentialFeed;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +366,7 @@
 		725DC15824D2B04900D54A4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -387,6 +391,7 @@
 		725DC15A24D2B04900D54A4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
@@ -405,6 +410,7 @@
 		725DC15B24D2B04900D54A4F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
