@@ -1,4 +1,4 @@
 # Essential Feed App – Image Feed Feature
 
-[![Build Status](https://travis-ci.com/chihyinwang/EssentialFeedStudy.svg?branch=master)
+[![Build Status](https://travis-ci.com/chihyinwang/EssentialFeedStudy.svg?branch=master)](https://travis-ci.com/chihyinwang/EssentialFeedStudy)
 
