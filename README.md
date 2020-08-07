@@ -121,6 +121,9 @@ Given the customer doesn't have connectivity
 
 ![Feed Loading Feature](feed_architecture.png)
 
+## Current Detail Diagram
+![Feed Loading Feature](FeedStudyDetailDiagram.jpg)
+
 ## Model Specs
 
 ### Feed Item
