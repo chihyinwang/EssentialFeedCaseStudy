@@ -39,7 +39,6 @@ public final class LocalFeedLoader {
             
             switch result {
             case let .failure(error):
-                self.store.deleteCacheFeed() { _ in }
                 completion(.failure(error))
                 
             case let .found(feed, timestamp) where self.validate(timestamp):
@@ -53,6 +52,11 @@ public final class LocalFeedLoader {
                 completion(.success([]))
             }
         }
+    }
+    
+    public func validateCache() {
+        store.retrieve() { _ in }
+        store.deleteCacheFeed() { _ in }
     }
     
     private var maxCacheAgeInDays: Int {
