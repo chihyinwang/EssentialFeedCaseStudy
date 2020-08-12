@@ -32,6 +32,7 @@
 		72DA20EB24E19911005F3BA2 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20EA24E19911005F3BA2 /* FeedCacheTestHelpers.swift */; };
 		72DA20ED24E19998005F3BA2 /* SharedScopeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20EC24E19998005F3BA2 /* SharedScopeHelpers.swift */; };
 		72DA20EF24E275DA005F3BA2 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */; };
+		72DA20F124E3971F005F3BA2 /* CodableFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20F024E3971F005F3BA2 /* CodableFeedStoreTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		72DA20EA24E19911005F3BA2 /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
 		72DA20EC24E19998005F3BA2 /* SharedScopeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScopeHelpers.swift; sourceTree = "<group>"; };
 		72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
+		72DA20F024E3971F005F3BA2 /* CodableFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableFeedStoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				72B257D224DBD208004CC98B /* CacheFeedUseCaseTests.swift */,
 				7242C53524DE9E2B00547F09 /* LoadFeedFromCacheUseCaseTests.swift */,
 				72B95A4124E10418005BDA24 /* ValidateFeedCacheUseCaseTests.swift */,
+				72DA20F024E3971F005F3BA2 /* CodableFeedStoreTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DA20F124E3971F005F3BA2 /* CodableFeedStoreTests.swift in Sources */,
 				72DA20EB24E19911005F3BA2 /* FeedCacheTestHelpers.swift in Sources */,
 				72B95A4224E10418005BDA24 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				72DA20ED24E19998005F3BA2 /* SharedScopeHelpers.swift in Sources */,
