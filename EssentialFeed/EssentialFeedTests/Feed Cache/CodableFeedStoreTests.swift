@@ -108,7 +108,7 @@ class CodableFeedStoreTests: XCTestCase {
     
     func test_retrieveAfterInsertingToEmptyCache_deliversInsertedValues() {
         let sut = CodableFeedStore()
-        let feed = uniqueImageFeed().locals
+        let feed = uniqueImageFeed().local
         let timestamp = Date()
         let exp = expectation(description: "Wait for cache retrieval")
         
