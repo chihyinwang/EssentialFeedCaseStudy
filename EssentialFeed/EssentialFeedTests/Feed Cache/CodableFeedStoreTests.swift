@@ -124,6 +124,32 @@ class CodableFeedStoreTests: XCTestCase {
         expect(sut, toRetrieve: .empty)
     }
     
+    func test_storeSideEffects_runSerially() {
+        let sut = makeSUT()
+        var completedOperationsInOrder = [XCTestExpectation]()
+        
+        let exp1 = expectation(description: "Operation 1")
+        sut.insert(uniqueImageFeed().local, timestamp: Date(), completion: { _ in
+            completedOperationsInOrder.append(exp1)
+            exp1.fulfill()
+        })
+        
+        let exp2 = expectation(description: "Operation 2")
+        sut.deleteCacheFeed { (_) in
+            completedOperationsInOrder.append(exp2)
+            exp2.fulfill()
+        }
+        
+        let exp3 = expectation(description: "Operation 3")
+        sut.insert(uniqueImageFeed().local, timestamp: Date(), completion: { _ in
+            completedOperationsInOrder.append(exp3)
+            exp3.fulfill()
+        })
+        waitForExpectations(timeout: 5.0)
+        
+        XCTAssertEqual(completedOperationsInOrder, [exp1, exp2, exp3], "Expected side-effects to run serially but operations finished in the wrong order")
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(storeURL: URL? = nil) -> FeedStore {
