@@ -30,6 +30,7 @@
 		7279E8A324E5797C007F8D74 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E8A224E5797C007F8D74 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */; };
 		7279E8A624E6ADBA007F8D74 /* CoreDataFeedStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E8A524E6ADBA007F8D74 /* CoreDataFeedStoreTests.swift */; };
 		7279E8A824E6AECC007F8D74 /* CoreDataFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E8A724E6AECC007F8D74 /* CoreDataFeedStore.swift */; };
+		7279E8AB24E6B55F007F8D74 /* FeedStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7279E8A924E6B55F007F8D74 /* FeedStore.xcdatamodeld */; };
 		72B257B924D80565004CC98B /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B257B824D80565004CC98B /* XCTestCase+MemoryLeakTracking.swift */; };
 		72B257BB24D816F4004CC98B /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B257BA24D816F4004CC98B /* URLSessionHTTPClient.swift */; };
 		72B257C324D958F4004CC98B /* EssentialFeedAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B257C224D958F4004CC98B /* EssentialFeedAPIEndToEndTests.swift */; };
@@ -88,6 +89,7 @@
 		7279E8A224E5797C007F8D74 /* XCTestCase+FailableDeleteFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableDeleteFeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		7279E8A524E6ADBA007F8D74 /* CoreDataFeedStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStoreTests.swift; sourceTree = "<group>"; };
 		7279E8A724E6AECC007F8D74 /* CoreDataFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFeedStore.swift; sourceTree = "<group>"; };
+		7279E8AA24E6B55F007F8D74 /* FeedStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FeedStore.xcdatamodel; sourceTree = "<group>"; };
 		72B257B824D80565004CC98B /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		72B257BA24D816F4004CC98B /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		72B257C024D958F4004CC98B /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 				72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */,
 				722964AE24E4429900B9516F /* CodableFeedStore.swift */,
 				7279E8A724E6AECC007F8D74 /* CoreDataFeedStore.swift */,
+				7279E8A924E6B55F007F8D74 /* FeedStore.xcdatamodeld */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				7242C53224DD9A4200547F09 /* RemoteFeedItem.swift in Sources */,
 				72DA20EF24E275DA005F3BA2 /* FeedCachePolicy.swift in Sources */,
 				725DC16824D2F99100D54A4F /* RemoteFeedLoader.swift in Sources */,
+				7279E8AB24E6B55F007F8D74 /* FeedStore.xcdatamodeld in Sources */,
 				7242C53424DD9A7100547F09 /* LocalFeedImage.swift in Sources */,
 				7242C53024DD88B800547F09 /* FeedStore.swift in Sources */,
 				7242C52E24DD87FA00547F09 /* LocalFeedLoader.swift in Sources */,
@@ -761,6 +765,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7279E8A924E6B55F007F8D74 /* FeedStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7279E8AA24E6B55F007F8D74 /* FeedStore.xcdatamodel */,
+			);
+			currentVersion = 7279E8AA24E6B55F007F8D74 /* FeedStore.xcdatamodel */;
+			path = FeedStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 725DC13924D2B04900D54A4F /* Project object */;
 }
