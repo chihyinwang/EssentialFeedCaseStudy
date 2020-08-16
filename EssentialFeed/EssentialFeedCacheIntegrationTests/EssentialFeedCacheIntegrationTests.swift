@@ -34,12 +34,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().model
         
-        let saveExp = expectation(description: "Wait for save completion")
-        sutToPerformSave.save(feed) { (saveError) in
-            XCTAssertNil(saveError)
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(feed, to: sutToPerformSave)
         
         expect(sutToPerformLoad, toLoad: feed)
     }
@@ -51,19 +46,8 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         let firstFeed = uniqueImageFeed().model
         let lastFeed = uniqueImageFeed().model
         
-        let saveExp1 = expectation(description: "Wait for save completion")
-        sutToPerformFirstSave.save(firstFeed) { (saveError) in
-            XCTAssertNil(saveError)
-            saveExp1.fulfill()
-        }
-        wait(for: [saveExp1], timeout: 1.0)
-        
-        let saveExp2 = expectation(description: "Wait for save completion")
-        sutToPerformLastSave.save(lastFeed) { (saveError) in
-            XCTAssertNil(saveError)
-            saveExp2.fulfill()
-        }
-        wait(for: [saveExp2], timeout: 1.0)
+        save(firstFeed, to: sutToPerformFirstSave)
+        save(lastFeed, to: sutToPerformLastSave)
         
         expect(sutToPerformLoad, toLoad: lastFeed)
     }
@@ -91,6 +75,15 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
                 XCTFail("Expected successful feed result, got \(error) instead", file: file, line: line)
             }
             
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func save(_ feed: [FeedImage], to sut: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for save completion")
+        sut.save(feed) { (saveError) in
+            XCTAssertNil(saveError, file: file, line: line)
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
