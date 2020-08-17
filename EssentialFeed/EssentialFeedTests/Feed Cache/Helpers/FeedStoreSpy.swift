@@ -12,7 +12,7 @@ import EssentialFeed
 class FeedStoreSpy: FeedStore {
     typealias DeleteCompletion = (Error?) -> Void
     typealias InserteCompletion = (Error?) -> Void
-    typealias RetrieveCompletion = (RetrieveCachedFeedResult) -> Void
+    typealias RetrieveCompletion = (FeedStore.RetrievalResult) -> Void
     
     enum ReceivedMessage: Equatable {
         case deleteCacheFeed
@@ -62,10 +62,10 @@ class FeedStoreSpy: FeedStore {
     }
     
     func completeRetrievalWithEmptyCache(at index: Int = 0) {
-        retrievalCompletions[index](.empty)
+        retrievalCompletions[index](.success(.empty))
     }
     
     func completeRetrieval(with feed: [LocalFeedImage], timestamp: Date, at index: Int = 0) {
-        retrievalCompletions[index](.found(feed: feed, timestamp: timestamp))
+        retrievalCompletions[index](.success(.found(feed: feed, timestamp: timestamp)))
     }
 }
