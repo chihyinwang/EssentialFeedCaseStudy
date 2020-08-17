@@ -17,7 +17,7 @@ public class CoreDataFeedStore: FeedStore {
         context = container.newBackgroundContext()
     }
     
-    public func deleteCacheFeed(completion: @escaping DeleteCompletion) {
+    public func deleteCacheFeed(completion: @escaping DeletionCompletion) {
         perform { context in
             do {
                 try ManagedCache.find(in: context).map(context.delete).map(context.save)
@@ -28,7 +28,7 @@ public class CoreDataFeedStore: FeedStore {
         }
     }
     
-    public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InserteCompletion) {
+    public func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertCompletion) {
         perform { context in
             do {
                 let managedCache = try ManagedCache.newUniqueInstance(in: context)
@@ -43,7 +43,7 @@ public class CoreDataFeedStore: FeedStore {
         }
     }
     
-    public func retrieve(completion: @escaping RetrieveCompletion) {
+    public func retrieve(completion: @escaping RetrievalCompletion) {
         perform { context in
             do {
                 if let cache = try ManagedCache.find(in: context) {
