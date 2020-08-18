@@ -25,7 +25,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="x09-rl-ODl">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedImageCell" rowHeight="580" id="x09-rl-ODl" customClass="FeedImageCell" customModule="Prototype" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="580"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x09-rl-ODl" id="xGc-jw-7Yt">
@@ -107,6 +107,12 @@ Location</string>
                                         <constraint firstItem="rlF-oq-JTx" firstAttribute="trailing" secondItem="xGc-jw-7Yt" secondAttribute="trailingMargin" id="ySE-PZ-1Uc"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="bay-qc-83h" id="j7M-iF-NIG"/>
+                                    <outlet property="feedImageView" destination="pky-PO-Yag" id="7Sm-8d-Pm3"/>
+                                    <outlet property="locationContainer" destination="5ld-It-CQA" id="6QG-ML-Vli"/>
+                                    <outlet property="locationLabel" destination="3iD-7R-Egj" id="qvr-Nv-K26"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
