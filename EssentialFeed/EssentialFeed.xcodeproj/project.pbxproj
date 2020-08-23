@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7214495C24F2214D00D46D33 /* FeedRefreshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214495B24F2214D00D46D33 /* FeedRefreshViewController.swift */; };
 		7225B03E24E818B200EF5EE9 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B03D24E818B200EF5EE9 /* CoreDataHelpers.swift */; };
 		7225B04024E8191100EF5EE9 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B03F24E8191100EF5EE9 /* ManagedCache.swift */; };
 		7225B04224E8191900EF5EE9 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B04124E8191900EF5EE9 /* ManagedFeedImage.swift */; };
@@ -120,6 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7214495B24F2214D00D46D33 /* FeedRefreshViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRefreshViewController.swift; sourceTree = "<group>"; };
 		7225B03D24E818B200EF5EE9 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		7225B03F24E8191100EF5EE9 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		7225B04124E8191900EF5EE9 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				72A4BB1424EE7B5A00843F7A /* FeedViewController.swift */,
+				7214495B24F2214D00D46D33 /* FeedRefreshViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72A4BB1F24F219F500843F7A /* FeedImageDataLoader.swift in Sources */,
+				7214495C24F2214D00D46D33 /* FeedRefreshViewController.swift in Sources */,
 				72A4BB1C24F01FA300843F7A /* UIView+Shimmering.swift in Sources */,
 				72A4BB1524EE7B5A00843F7A /* FeedViewController.swift in Sources */,
 				72A4BB1A24EFC03C00843F7A /* FeedImageCell.swift in Sources */,
