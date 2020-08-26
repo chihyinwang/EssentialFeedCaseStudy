@@ -6,7 +6,6 @@
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
-import UIKit
 import EssentialFeed
 
 final class FeedViewModel {
