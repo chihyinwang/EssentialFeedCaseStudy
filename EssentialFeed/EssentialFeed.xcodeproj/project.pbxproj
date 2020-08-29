@@ -73,6 +73,8 @@
 		72F5504224F8EE790009B219 /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5504124F8EE790009B219 /* FeedImagePresenter.swift */; };
 		72F5504424F924630009B219 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5504324F924630009B219 /* FeedViewModel.swift */; };
 		72F5504624F924860009B219 /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F5504524F924860009B219 /* FeedLoadingViewModel.swift */; };
+		72F5504824FA57390009B219 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F5504724FA57390009B219 /* Feed.storyboard */; };
+		72F5504A24FA579A0009B219 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F5504924FA579A0009B219 /* Feed.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +198,8 @@
 		72F5504124F8EE790009B219 /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
 		72F5504324F924630009B219 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		72F5504524F924860009B219 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
+		72F5504724FA57390009B219 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		72F5504924FA579A0009B219 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +477,8 @@
 			children = (
 				72A4BB1924EFC03C00843F7A /* FeedImageCell.swift */,
 				72A4BB1B24F01FA300843F7A /* UIView+Shimmering.swift */,
+				72F5504724FA57390009B219 /* Feed.storyboard */,
+				72F5504924FA579A0009B219 /* Feed.xcassets */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -761,6 +767,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F5504824FA57390009B219 /* Feed.storyboard in Resources */,
+				72F5504A24FA579A0009B219 /* Feed.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
