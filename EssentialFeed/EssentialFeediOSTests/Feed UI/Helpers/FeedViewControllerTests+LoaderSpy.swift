@@ -1,7 +1,4 @@
 //
-//  FeedViewControllerTests+LoaderSpy.swift
-//  EssentialFeediOSTests
-//
 //  Created by chihyin wang on 2020/8/23.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
@@ -10,7 +7,7 @@ import XCTest
 import EssentialFeed
 import EssentialFeediOS
 
-extension FeedViewControllerTests {
+extension FeedUIIntegrationTests {
     
     class LoaderSpy: FeedLoader, FeedImageDataLoader {
         
