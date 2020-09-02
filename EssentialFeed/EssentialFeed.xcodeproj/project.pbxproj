@@ -11,8 +11,8 @@
 		7214496124F231A000D46D33 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214496024F231A000D46D33 /* FeedUIComposer.swift */; };
 		722043E824FB9986009110A6 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043E724FB9986009110A6 /* UITableView+Dequeing.swift */; };
 		722043EA24FB9A50009110A6 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043E924FB9A50009110A6 /* UIImageView+Animations.swift */; };
-		722043EC24FF39C7009110A6 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 722043EB24FF39C7009110A6 /* Feed.strings */; };
 		722043EE24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043ED24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift */; };
+		722043EF24FF3DFA009110A6 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 722043F124FF3DFA009110A6 /* Feed.strings */; };
 		7225B03E24E818B200EF5EE9 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B03D24E818B200EF5EE9 /* CoreDataHelpers.swift */; };
 		7225B04024E8191100EF5EE9 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B03F24E8191100EF5EE9 /* ManagedCache.swift */; };
 		7225B04224E8191900EF5EE9 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7225B04124E8191900EF5EE9 /* ManagedFeedImage.swift */; };
@@ -137,8 +137,8 @@
 		7214496024F231A000D46D33 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		722043E724FB9986009110A6 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
 		722043E924FB9A50009110A6 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
-		722043EB24FF39C7009110A6 /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
 		722043ED24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
+		722043F024FF3DFA009110A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		7225B03D24E818B200EF5EE9 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		7225B03F24E8191100EF5EE9 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		7225B04124E8191900EF5EE9 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -406,7 +406,7 @@
 				72F5504524F924860009B219 /* FeedLoadingViewModel.swift */,
 				72F5504124F8EE790009B219 /* FeedImagePresenter.swift */,
 				7273376B24F50FB100DA069C /* FeedImageViewModel.swift */,
-				722043EB24FF39C7009110A6 /* Feed.strings */,
+				722043F124FF3DFA009110A6 /* Feed.strings */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -762,7 +762,7 @@
 			files = (
 				72F5504824FA57390009B219 /* Feed.storyboard in Resources */,
 				72F5504A24FA579A0009B219 /* Feed.xcassets in Resources */,
-				722043EC24FF39C7009110A6 /* Feed.strings in Resources */,
+				722043EF24FF3DFA009110A6 /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +916,17 @@
 			targetProxy = 72B257C624D958F4004CC98B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		722043F124FF3DFA009110A6 /* Feed.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				722043F024FF3DFA009110A6 /* en */,
+			);
+			name = Feed.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7225B04F24E91CB400EF5EE9 /* Debug */ = {
