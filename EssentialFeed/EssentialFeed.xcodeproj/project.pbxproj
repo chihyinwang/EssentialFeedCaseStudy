@@ -12,6 +12,7 @@
 		721496162507B9DC00801E72 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = 722603E72507B6C80033E8C9 /* Feed.strings */; };
 		721496182507BA2D00801E72 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721496172507BA2D00801E72 /* FeedViewModel.swift */; };
 		7214961A2507BA7F00801E72 /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721496192507BA7F00801E72 /* FeedLoadingViewModel.swift */; };
+		7214961C2507BA9F00801E72 /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7214961B2507BA9F00801E72 /* FeedErrorViewModel.swift */; };
 		722043E824FB9986009110A6 /* UITableView+Dequeing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043E724FB9986009110A6 /* UITableView+Dequeing.swift */; };
 		722043EA24FB9A50009110A6 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043E924FB9A50009110A6 /* UIImageView+Animations.swift */; };
 		722043EE24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722043ED24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift */; };
@@ -151,6 +152,7 @@
 		7214496024F231A000D46D33 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		721496172507BA2D00801E72 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		721496192507BA7F00801E72 /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
+		7214961B2507BA9F00801E72 /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		722043E724FB9986009110A6 /* UITableView+Dequeing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeing.swift"; sourceTree = "<group>"; };
 		722043E924FB9A50009110A6 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
 		722043ED24FF3CAA009110A6 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				722603EB2507B93B0033E8C9 /* FeedPresenters.swift */,
 				721496172507BA2D00801E72 /* FeedViewModel.swift */,
 				721496192507BA7F00801E72 /* FeedLoadingViewModel.swift */,
+				7214961B2507BA9F00801E72 /* FeedErrorViewModel.swift */,
 				722603E72507B6C80033E8C9 /* Feed.strings */,
 			);
 			path = "Feed Presentation";
@@ -896,6 +899,7 @@
 				7225B04024E8191100EF5EE9 /* ManagedCache.swift in Sources */,
 				722603EC2507B93B0033E8C9 /* FeedPresenters.swift in Sources */,
 				7279E8A824E6AECC007F8D74 /* CoreDataFeedStore.swift in Sources */,
+				7214961C2507BA9F00801E72 /* FeedErrorViewModel.swift in Sources */,
 				7214961A2507BA7F00801E72 /* FeedLoadingViewModel.swift in Sources */,
 				7225B04224E8191900EF5EE9 /* ManagedFeedImage.swift in Sources */,
 			);
