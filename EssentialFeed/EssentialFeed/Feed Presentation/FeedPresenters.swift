@@ -20,10 +20,6 @@ public protocol FeedView {
     func display(_ viewModel: FeedViewModel)
 }
 
-public struct FeedViewModel {
-    public let feed: [FeedImage]
-}
-
 public protocol FeedErrorView {
     func display(_ viewModel: FeedErrorViewModel)
 }
