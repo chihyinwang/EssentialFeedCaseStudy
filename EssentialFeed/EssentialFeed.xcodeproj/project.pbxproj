@@ -43,6 +43,7 @@
 		724339DE25091B0C002F8E55 /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724339DD25091B0C002F8E55 /* FeedImagePresenterTests.swift */; };
 		72561F46250A11440042AA6B /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72561F45250A11440042AA6B /* FeedImagePresenter.swift */; };
 		72561F48250A11BF0042AA6B /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72561F47250A11BF0042AA6B /* FeedImageViewModel.swift */; };
+		72561F49250CD4B40042AA6B /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB1E24F219F500843F7A /* FeedImageDataLoader.swift */; };
 		725DC14C24D2B04900D54A4F /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725DC14224D2B04900D54A4F /* EssentialFeed.framework */; };
 		725DC15324D2B04900D54A4F /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 725DC14524D2B04900D54A4F /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		725DC15E24D2B0CD00D54A4F /* FeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725DC15D24D2B0CD00D54A4F /* FeedImage.swift */; };
@@ -68,7 +69,6 @@
 		72A4BB1524EE7B5A00843F7A /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB1424EE7B5A00843F7A /* FeedViewController.swift */; };
 		72A4BB1A24EFC03C00843F7A /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB1924EFC03C00843F7A /* FeedImageCell.swift */; };
 		72A4BB1C24F01FA300843F7A /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB1B24F01FA300843F7A /* UIView+Shimmering.swift */; };
-		72A4BB1F24F219F500843F7A /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB1E24F219F500843F7A /* FeedImageDataLoader.swift */; };
 		72A4BB2524F21B1100843F7A /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB2424F21B1100843F7A /* UIImage+TestHelpers.swift */; };
 		72A4BB2724F21B4E00843F7A /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB2624F21B4E00843F7A /* UIRefreshControl+TestHelpers.swift */; };
 		72A4BB2924F21B7B00843F7A /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A4BB2824F21B7B00843F7A /* UIButton+TestHelpers.swift */; };
@@ -439,6 +439,7 @@
 			children = (
 				725DC15F24D2B12D00D54A4F /* FeedLoader.swift */,
 				725DC15D24D2B0CD00D54A4F /* FeedImage.swift */,
+				72A4BB1E24F219F500843F7A /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -480,7 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				72A4BAE624ECDCE700843F7A /* Info.plist */,
-				72A4BB1D24F219E500843F7A /* FeedImageLoader */,
 				72A4BB2024F21A4600843F7A /* Feed UI */,
 			);
 			path = EssentialFeediOS;
@@ -500,14 +500,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		72A4BB1D24F219E500843F7A /* FeedImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				72A4BB1E24F219F500843F7A /* FeedImageDataLoader.swift */,
-			);
-			path = FeedImageLoader;
 			sourceTree = "<group>";
 		};
 		72A4BB2024F21A4600843F7A /* Feed UI */ = {
@@ -870,6 +862,7 @@
 				722603EC2507B93B0033E8C9 /* FeedPresenters.swift in Sources */,
 				7279E8A824E6AECC007F8D74 /* CoreDataFeedStore.swift in Sources */,
 				7214961C2507BA9F00801E72 /* FeedErrorViewModel.swift in Sources */,
+				72561F49250CD4B40042AA6B /* FeedImageDataLoader.swift in Sources */,
 				7214961A2507BA7F00801E72 /* FeedLoadingViewModel.swift in Sources */,
 				72561F46250A11440042AA6B /* FeedImagePresenter.swift in Sources */,
 				7225B04224E8191900EF5EE9 /* ManagedFeedImage.swift in Sources */,
@@ -905,7 +898,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72A4BB1F24F219F500843F7A /* FeedImageDataLoader.swift in Sources */,
 				722603DA250391950033E8C9 /* ErrorView.swift in Sources */,
 				72A4BB1C24F01FA300843F7A /* UIView+Shimmering.swift in Sources */,
 				72A4BB1524EE7B5A00843F7A /* FeedViewController.swift in Sources */,
