@@ -7,10 +7,17 @@
 //
 
 import XCTest
+import EssentialFeed
 
 final class RemoteFeedImageDataLoader {
-    init(client: Any) {
-        
+    private let client: HTTPClient
+    
+    init(client: HTTPClient) {
+        self.client = client
+    }
+    
+    func loadImageData(from url: URL, completion: @escaping(Data) -> Void) {
+        client.get(from: url) { _ in }
     }
 }
 
@@ -22,9 +29,18 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         XCTAssertTrue(client.requestURLs.isEmpty)
     }
     
+    func test_loadImageDataFromURL_requestsDataFromURL() {
+        let url = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(url: url)
+        
+        sut.loadImageData(from: url) { _ in }
+        
+        XCTAssertEqual(client.requestURLs, [url])
+    }
+    
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, client: ClientSpy) {
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, client: ClientSpy) {
         let client = ClientSpy()
         let sut = RemoteFeedImageDataLoader(client: client)
         trackForMemoryLeaks(client, file: file, line: line)
@@ -32,7 +48,11 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         return (sut, client)
     }
     
-    private class ClientSpy {
-        let requestURLs = [URL]()
+    private class ClientSpy: HTTPClient {
+        var requestURLs = [URL]()
+        
+        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
+            requestURLs.append(url)
+        }
     }
 }
