@@ -58,8 +58,24 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
     func test_loadImageDataFromURL_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         let clientError = NSError(domain: "client error", code: 0)
+        
+        expect(sut: sut, toCompleteWith: .failure(clientError), when: {
+            client.complete(with: clientError)
+        })
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, client: ClientSpy) {
+        let client = ClientSpy()
+        let sut = RemoteFeedImageDataLoader(client: client)
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, client)
+    }
+    
+    private func expect(sut: RemoteFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: @escaping () -> Void) {
         let url = URL(string: "https://a-given-url.com")!
-        let expectedResult = FeedImageDataLoader.Result.failure(clientError)
         
         let exp = expectation(description: "Wait for load completion")
         sut.loadImageData(from: url) { receivedResult in
@@ -77,19 +93,9 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
             exp.fulfill()
         }
         
-        client.complete(with: clientError)
+        action()
         
         wait(for: [exp], timeout: 1.0)
-    }
-    
-    // MARK: - Helpers
-    
-    private func makeSUT(url: URL = anyURL(), file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedImageDataLoader, client: ClientSpy) {
-        let client = ClientSpy()
-        let sut = RemoteFeedImageDataLoader(client: client)
-        trackForMemoryLeaks(client, file: file, line: line)
-        trackForMemoryLeaks(sut, file: file, line: line)
-        return (sut, client)
     }
     
     private class ClientSpy: HTTPClient {
