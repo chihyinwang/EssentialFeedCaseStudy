@@ -63,7 +63,7 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         let clientError = NSError(domain: "client error", code: 0)
         
-        expect(sut: sut, toCompleteWith: .failure(clientError), when: {
+        expect(sut, toCompleteWith: .failure(clientError), when: {
             client.complete(with: clientError)
         })
     }
@@ -74,10 +74,19 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         let samples = [199, 201, 240, 300, 500]
         
         samples.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteWith: failure(.invalidData), when: {
-                client.complete(with: code, at: index)
+            expect(sut, toCompleteWith: failure(.invalidData), when: {
+                client.complete(with: code, data: anyData(), at: index)
             })
         }
+    }
+    
+    func test_loadImageDataFromURL_deliversInvalidDataErrorOn200HTTPResponseWithEmptyData() {
+        let (sut, client) = makeSUT()
+        
+        expect(sut, toCompleteWith: failure(.invalidData), when: {
+            let emptyData = Data()
+            client.complete(with: 200, data: emptyData)
+        })
     }
     
     // MARK: - Helpers
@@ -90,7 +99,7 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         return (sut, client)
     }
     
-    private func expect(sut: RemoteFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: @escaping () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: RemoteFeedImageDataLoader, toCompleteWith expectedResult: FeedImageDataLoader.Result, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let url = URL(string: "https://a-given-url.com")!
         
         let exp = expectation(description: "Wait for load completion")
@@ -117,6 +126,10 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    private func anyData() -> Data {
+        return Data("any-data".utf8)
+    }
+    
     private func failure(_ error: RemoteFeedImageDataLoader.Error) -> FeedImageDataLoader.Result {
         return .failure(error)
     }
@@ -136,9 +149,9 @@ class RemoteFeedImageDataLoaderTests: XCTestCase {
             messages[index].completion(.failure(error))
         }
         
-        func complete(with code: Int, at index: Int = 0) {
+        func complete(with code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(url: requestURLs[index], statusCode: code, httpVersion: nil, headerFields: nil)!
-            messages[index].completion(.success((Data(), response)))
+            messages[index].completion(.success((data, response)))
         }
     }
 }
