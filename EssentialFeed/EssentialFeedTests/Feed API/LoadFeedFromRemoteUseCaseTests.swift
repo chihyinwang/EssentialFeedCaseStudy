@@ -110,7 +110,7 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy){
+    private func makeSUT(url: URL = URL(string: "https://a-url.com")!, file: StaticString = #file, line: UInt = #line) -> (sut: RemoteFeedLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedLoader(url: url, client: client)
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -164,32 +164,6 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         action()
         
         wait(for: [exp], timeout: 1.0)
-    }
-    
-    private class HTTPClientSpy: HTTPClient {
-        private var messages = [(url: URL, completion: (HTTPClient.Result) -> Void)]()
-        
-        var requestedURLs: [URL] {
-            return messages.map{ $0.url }
-        }
-        
-        func get(from url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-            self.messages.append((url, completion))
-        }
-        
-        func complete(with error: Error, at index: Int = 0) {
-            self.messages[index].completion(.failure(error))
-        }
-        
-        func complete(withStatusCode code: Int,
-                      data: Data,
-                      at index: Int = 0) {
-            let response = HTTPURLResponse(url: self.messages[index].url,
-                                           statusCode: code,
-                                           httpVersion: nil,
-                                           headerFields: nil)!
-            messages[index].completion(.success((data, response)))
-        }
     }
     
 }
