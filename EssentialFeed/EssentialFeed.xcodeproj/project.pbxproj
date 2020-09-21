@@ -59,6 +59,8 @@
 		7275C408251261700065142B /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275C407251261700065142B /* HTTPURLResponse+StatusCode.swift */; };
 		7275C40A251261EA0065142B /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275C409251261EA0065142B /* URLProtocolStub.swift */; };
 		7275C40C2514E2C80065142B /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275C40B2514E2C80065142B /* LocalFeedImageDataLoaderTests.swift */; };
+		7275C40E2518884C0065142B /* LocalFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275C40D2518884C0065142B /* LocalFeedImageDataLoader.swift */; };
+		7275C4102518887F0065142B /* FeedImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275C40F2518887F0065142B /* FeedImageDataStore.swift */; };
 		7279E89B24E5735F007F8D74 /* FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E89A24E5735F007F8D74 /* FeedStoreSpecs.swift */; };
 		7279E89D24E57401007F8D74 /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E89C24E57401007F8D74 /* XCTestCase+FeedStoreSpecs.swift */; };
 		7279E89F24E57955007F8D74 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7279E89E24E57955007F8D74 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */; };
@@ -205,6 +207,8 @@
 		7275C407251261700065142B /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		7275C409251261EA0065142B /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		7275C40B2514E2C80065142B /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		7275C40D2518884C0065142B /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
+		7275C40F2518887F0065142B /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
 		7279E89A24E5735F007F8D74 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		7279E89C24E57401007F8D74 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
 		7279E89E24E57955007F8D74 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FailableRetrieveFeedStoreSpecs.swift"; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 				7242C52F24DD88B800547F09 /* FeedStore.swift */,
 				7242C53324DD9A7100547F09 /* LocalFeedImage.swift */,
 				72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */,
+				7275C40D2518884C0065142B /* LocalFeedImageDataLoader.swift */,
+				7275C40F2518887F0065142B /* FeedImageDataStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7275C40E2518884C0065142B /* LocalFeedImageDataLoader.swift in Sources */,
 				7225B03E24E818B200EF5EE9 /* CoreDataHelpers.swift in Sources */,
 				725DC16024D2B12D00D54A4F /* FeedLoader.swift in Sources */,
 				725DC16C24D4D5E000D54A4F /* FeedItemMapper.swift in Sources */,
@@ -884,6 +891,7 @@
 				7242C52E24DD87FA00547F09 /* LocalFeedLoader.swift in Sources */,
 				725DC16A24D4D58200D54A4F /* HTTPClient.swift in Sources */,
 				725DC15E24D2B0CD00D54A4F /* FeedImage.swift in Sources */,
+				7275C4102518887F0065142B /* FeedImageDataStore.swift in Sources */,
 				72B257BB24D816F4004CC98B /* URLSessionHTTPClient.swift in Sources */,
 				7225B04024E8191100EF5EE9 /* ManagedCache.swift in Sources */,
 				7275C408251261700065142B /* HTTPURLResponse+StatusCode.swift in Sources */,
