@@ -22,34 +22,36 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         
         undoStoreSideEffects()
     }
+    
+    // MARK: - LocalFeedLoader Tests
 
-    func test_load_deliversNoItemsOnEmptyCache() {
+    func test_loadFeed_deliversNoItemsOnEmptyCache() {
         let sut = makeFeedLoader()
         
         expect(sut, toLoad: [])
     }
     
-    func test_load_deliversItemsSavedOnSeparateInstance() {
-        let sutToPerformSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_loadFeed_deliversItemsSavedOnSeparateInstance() {
+        let feedLoaderToPerformSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
         let feed = uniqueImageFeed().model
         
-        save(feed, to: sutToPerformSave)
+        save(feed, with: feedLoaderToPerformSave)
         
-        expect(sutToPerformLoad, toLoad: feed)
+        expect(feedLoaderToPerformLoad, toLoad: feed)
     }
     
-    func test_save_overridesItemsSavedOnASeparateInstance() {
-        let sutToPerformFirstSave = makeFeedLoader()
-        let sutToPerformLastSave = makeFeedLoader()
-        let sutToPerformLoad = makeFeedLoader()
+    func test_saveFeed_overridesItemsSavedOnASeparateInstance() {
+        let feedLoaderToPerformFirstSave = makeFeedLoader()
+        let feedLoaderToPerformLastSave = makeFeedLoader()
+        let feedLoaderToPerformLoad = makeFeedLoader()
         let firstFeed = uniqueImageFeed().model
         let lastFeed = uniqueImageFeed().model
         
-        save(firstFeed, to: sutToPerformFirstSave)
-        save(lastFeed, to: sutToPerformLastSave)
+        save(firstFeed, with: feedLoaderToPerformFirstSave)
+        save(lastFeed, with: feedLoaderToPerformLastSave)
         
-        expect(sutToPerformLoad, toLoad: lastFeed)
+        expect(feedLoaderToPerformLoad, toLoad: lastFeed)
     }
     
     // MARK: - LocalFeedImageDataLoader Tests
@@ -61,7 +63,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         let image = uniqueImage()
         let dataToSave = anyData()
         
-        save([image], to: feedLoader)
+        save([image], with: feedLoader)
         save(dataToSave, for: image.url, with: imageLoaderToPerformSave)
         
         expect(imageLoaderToPerformLoad, toLoad: dataToSave, for: image.url)
@@ -103,7 +105,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         return sut
     }
     
-    private func save(_ feed: [FeedImage], to loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
+    private func save(_ feed: [FeedImage], with loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for save completion")
         loader.save(feed) { result in
             if case let Result.failure(error) = result {
