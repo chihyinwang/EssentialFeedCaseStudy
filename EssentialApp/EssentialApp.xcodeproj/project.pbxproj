@@ -17,7 +17,6 @@
 		7298938B252376EC00B1E002 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72989389252376EC00B1E002 /* Main.storyboard */; };
 		7298938D252376ED00B1E002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7298938C252376ED00B1E002 /* Assets.xcassets */; };
 		72989390252376ED00B1E002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7298938E252376ED00B1E002 /* LaunchScreen.storyboard */; };
-		7298939B252376ED00B1E002 /* EssentialAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7298939A252376ED00B1E002 /* EssentialAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +56,6 @@
 		7298938F252376ED00B1E002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72989391252376ED00B1E002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72989396252376ED00B1E002 /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7298939A252376ED00B1E002 /* EssentialAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialAppTests.swift; sourceTree = "<group>"; };
 		7298939C252376ED00B1E002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,7 +124,6 @@
 		72989399252376ED00B1E002 /* EssentialAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				7298939A252376ED00B1E002 /* EssentialAppTests.swift */,
 				7298939C252376ED00B1E002 /* Info.plist */,
 			);
 			path = EssentialAppTests;
@@ -186,6 +183,7 @@
 					};
 					72989395252376ED00B1E002 = {
 						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 						TestTargetID = 7298937F252376EC00B1E002;
 					};
 				};
@@ -244,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7298939B252376ED00B1E002 /* EssentialAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +430,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
 				INFOPLIST_FILE = EssentialAppTests/Info.plist;
@@ -444,6 +442,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = chihyinwang.is.this.EssentialAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EssentialApp.app/EssentialApp";
@@ -455,6 +454,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
 				INFOPLIST_FILE = EssentialAppTests/Info.plist;
