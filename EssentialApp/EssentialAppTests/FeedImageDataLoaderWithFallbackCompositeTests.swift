@@ -31,7 +31,7 @@ final class FeedImageDataLoaderWithFallbackComposite: FeedImageDataLoader {
         task.wrapped = primary.loadImageData(from: url) { [weak self] result in
             switch result {
             case .success:
-                break
+                completion(result)
                 
             case .failure:
                 task.wrapped = self?.fallback.loadImageData(from: url, completion: completion)
@@ -95,6 +95,26 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         XCTAssertEqual(fallbackLoader.cancelledURLs, [url], "Expected to cancel URL loading from the fallback loader")
     }
     
+    func test_loadImageData_deliversPrimaryDataOnPrimaryLoaderSuccess() {
+        let primaryData = anyData()
+        let expectedResult = FeedImageDataLoader.Result.success(primaryData)
+        let (sut, primaryLoader, _)  = makeSUT()
+        
+        let exp = expectation(description: "Wait for load completion")
+        _ = sut.loadImageData(from: anyURL()) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData)
+                
+            default:
+                XCTFail("Expected to load success, got \(receivedResult) instead")
+            }
+            exp.fulfill()
+        }
+        primaryLoader.complete(with: primaryData)
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoaderWithFallbackComposite, primary: LoaderSpy, fallback: LoaderSpy) {
@@ -121,6 +141,10 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         return NSError(domain: "any", code: 0)
     }
     
+    private func anyData() -> Data {
+        return Data("any-data".utf8)
+    }
+    
     private class LoaderSpy: FeedImageDataLoader {
         private var messages = [(url: URL, completion: (FeedImageDataLoader.Result) -> Void)]()
         
@@ -144,6 +168,10 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         
         func complete(with error: NSError, at index: Int = 0) {
             messages[index].completion(.failure(error))
+        }
+        
+        func complete(with data: Data, at index: Int = 0) {
+            messages[index].completion(.success(data))
         }
     }
 }
