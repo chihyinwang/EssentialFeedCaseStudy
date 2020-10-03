@@ -115,6 +115,28 @@ class FeedImageDataLoaderWithFallbackCompositeTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_loadImageData_deliversFallbackDataOnFallbackLoaderSuccess() {
+        let fallbackData = anyData()
+        let expectedResult = FeedImageDataLoader.Result.success(fallbackData)
+        let (sut, primaryLoader, fallbackLoader)  = makeSUT()
+        
+        let exp = expectation(description: "Wait for load completion")
+        _ = sut.loadImageData(from: anyURL()) { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedData), .success(expectedData)):
+                XCTAssertEqual(receivedData, expectedData)
+                
+            default:
+                XCTFail("Expected to load success, got \(receivedResult) instead")
+            }
+            
+            exp.fulfill()
+        }
+        primaryLoader.complete(with: anyNSError())
+        fallbackLoader.complete(with: fallbackData)
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedImageDataLoaderWithFallbackComposite, primary: LoaderSpy, fallback: LoaderSpy) {
