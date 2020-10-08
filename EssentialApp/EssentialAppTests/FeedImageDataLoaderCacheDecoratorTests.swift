@@ -11,8 +11,10 @@ import EssentialFeed
 import EssentialApp
 
 final class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
+    private let decoratee: FeedImageDataLoader
+    
     init(decoratee: FeedImageDataLoader) {
-        
+        self.decoratee = decoratee
     }
     
     private struct Task: FeedImageDataLoaderTask {
@@ -20,6 +22,7 @@ final class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     }
     
     func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+        _ = decoratee.loadImageData(from: url) { _ in }
         return Task()
     }
 }
@@ -30,6 +33,15 @@ class FeedImageDataLoaderCacheDecoratorTests: XCTestCase {
         let (_, loader) = makeSUT()
         
         XCTAssertTrue(loader.loadedURLs.isEmpty, "Expected no loaded URLs")
+    }
+    
+    func test_loadImageData_loadsFromLoader() {
+        let url = anyURL()
+        let (sut, loader) = makeSUT()
+        
+        _ = sut.loadImageData(from: url) { _ in }
+        
+        XCTAssertEqual(loader.loadedURLs, [url], "Expected to load from URL from loader")
     }
     
     // MARK: - Helpers
