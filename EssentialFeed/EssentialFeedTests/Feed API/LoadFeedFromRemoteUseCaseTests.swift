@@ -11,15 +11,14 @@ import EssentialFeed
 
 class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
-    func test_load_deliversErrorOnNon200HTTPResponse() {
-        let (sut, client) = makeSUT()
-        
+    func test_map_throwsErrorOnNon200HTTPResponse() throws {
+        let json = makeItemJSON([])
         let samples = [199, 201, 300, 400, 500]
-        samples.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteWith: failure(.invalidData)) {
-                let json = makeItemJSON([])
-                client.complete(withStatusCode: code, data: json, at: index)
-            }
+        
+        try samples.forEach { code in
+            XCTAssertThrowsError(
+                try FeedItemMapper.map(json, from: HTTPURLResponse(statusCode: code))
+            )
         }
     }
     
@@ -120,3 +119,8 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
 }
 
+private extension HTTPURLResponse {
+    convenience init(statusCode: Int) {
+        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
+    }
+}
