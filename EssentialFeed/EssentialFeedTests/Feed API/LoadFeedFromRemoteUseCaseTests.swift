@@ -30,13 +30,12 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         )
     }
     
-    func test_load_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() {
-        let (sut, client) = makeSUT()
+    func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
+        let emptyListJSON = makeItemJSON([])
         
-        expect(sut: sut, toCompleteWith: .success([])) {
-            let emptyJSON = makeItemJSON([])
-            client.complete(withStatusCode: 200, data: emptyJSON)
-        }
+        let result = try FeedItemMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
+
+        XCTAssertEqual(result, [])
     }
     
     func test_load_deliversItemsOn200HTTPResponseWithJSONItems() {
