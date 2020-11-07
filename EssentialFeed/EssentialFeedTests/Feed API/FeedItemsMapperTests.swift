@@ -8,7 +8,7 @@ import EssentialFeed
 class FeedItemsMapperTests: XCTestCase {
     
     func test_map_throwsErrorOnNon200HTTPResponse() throws {
-        let json = makeItemJSON([])
+        let json = makeItemsJSON([])
         let samples = [199, 201, 300, 400, 500]
         
         try samples.forEach { code in
@@ -27,7 +27,7 @@ class FeedItemsMapperTests: XCTestCase {
     }
     
     func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
-        let emptyListJSON = makeItemJSON([])
+        let emptyListJSON = makeItemsJSON([])
         
         let result = try FeedItemMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
 
@@ -45,7 +45,7 @@ class FeedItemsMapperTests: XCTestCase {
             location: "location",
             imageURL: URL(string: "https://another-url.com")!)
         
-        let json = makeItemJSON([item1.json, item2.json])
+        let json = makeItemsJSON([item1.json, item2.json])
         
         let result = try FeedItemMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 
@@ -72,17 +72,5 @@ class FeedItemsMapperTests: XCTestCase {
             ].compactMapValues { $0 }
         
         return (item, json)
-    }
-    
-    private func makeItemJSON(_ items: [[String: Any]]) -> Data {
-        let json = ["items": items]
-        return try! JSONSerialization.data(withJSONObject: json)
-    }
-    
-}
-
-private extension HTTPURLResponse {
-    convenience init(statusCode: Int) {
-        self.init(url: anyURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
     }
 }
