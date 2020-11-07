@@ -1,25 +1,21 @@
 //
-//  LoadImageCommentsFromRemoteUseCaseTests.swift
-//  EssentialFeedTests
-//
-//  Created by chihyin wang on 2020/10/29.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
 import XCTest
 import EssentialFeed
 
-class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
+class ImageCommentsMapperTests: XCTestCase {
     
-    func test_load_deliversErrorOnNon2xxHTTPResponse() {
-        let (sut, client) = makeSUT()
+    func test_map_throwsErrorOnNon2xxHTTPResponse() throws {
+        let json = makeItemsJSON([])
         
         let samples = [199, 150, 300, 400, 500]
-        samples.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteWith: failure(.invalidData)) {
-                let json = makeItemJSON([])
-                client.complete(withStatusCode: code, data: json, at: index)
-            }
+        
+        try samples.forEach { code in
+            XCTAssertThrowsError(
+                try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
+            )
         }
     }
     
@@ -41,7 +37,7 @@ class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
         let samples = [200, 201, 250, 280, 299]
         samples.enumerated().forEach { index, code in
             expect(sut: sut, toCompleteWith: .success([])) {
-                let emptyJSON = makeItemJSON([])
+                let emptyJSON = makeItemsJSON([])
                 client.complete(withStatusCode: code, data: emptyJSON, at: index)
             }
         }
@@ -65,7 +61,7 @@ class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
         let samples = [200, 201, 250, 280, 299]
         samples.enumerated().forEach { index, code in
             expect(sut: sut, toCompleteWith: .success(items), when: {
-                let json = makeItemJSON([item1.json, item2.json])
+                let json = makeItemsJSON([item1.json, item2.json])
                 client.complete(withStatusCode: code, data: json, at: index)
             })
         }
@@ -100,7 +96,7 @@ class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
         return (item, json)
     }
     
-    private func makeItemJSON(_ items: [[String: Any]]) -> Data {
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
         let json = ["items": items]
         return try! JSONSerialization.data(withJSONObject: json)
     }
