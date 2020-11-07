@@ -19,15 +19,14 @@ class ImageCommentsMapperTests: XCTestCase {
         }
     }
     
-    func test_load_deliversErrorOn2xxHTTPResponseWithInvalidJSON() {
-        let (sut, client) = makeSUT()
+    func test_map_throwsErrorOn2xxHTTPResponseWithInvalidJSON() throws {
+        let invalidJSON = Data("Invalid JSON".utf8)
         
         let samples = [200, 201, 250, 280, 299]
-        samples.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteWith: failure(.invalidData)) {
-                let invalidJSON = Data("Invalid JSON".utf8)
-                client.complete(withStatusCode: code, data: invalidJSON, at: index)
-            }
+        try samples.forEach { code in
+            XCTAssertThrowsError(
+                try ImageCommentsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: code))
+            )
         }
     }
     
