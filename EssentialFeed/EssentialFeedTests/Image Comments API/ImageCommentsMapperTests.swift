@@ -42,27 +42,26 @@ class ImageCommentsMapperTests: XCTestCase {
         }
     }
     
-    func test_load_deliversItemsOn2xxHTTPResponseWithJSONItems() {
-        let (sut, client) = makeSUT()
+    func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
+        let item1 = makeItem(
+            id: UUID(),
+            message: "a message",
+            createdAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+00:00"),
+            username: "a username")
         
-        let item1 = makeItem(id: UUID(),
-                             message: "a message",
-                             createdAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+00:00"),
-                             username: "a username")
+        let item2 = makeItem(
+            id: UUID(),
+            message: "another message",
+            createdAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+00:00"),
+            username: "another username")
         
-        let item2 = makeItem(id: UUID(),
-                             message: "another message",
-                             createdAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+00:00"),
-                             username: "another username")
-        
-        let items = [item1.model, item2.model]
-        
+        let json = makeItemsJSON([item1.json, item2.json])
         let samples = [200, 201, 250, 280, 299]
-        samples.enumerated().forEach { index, code in
-            expect(sut: sut, toCompleteWith: .success(items), when: {
-                let json = makeItemsJSON([item1.json, item2.json])
-                client.complete(withStatusCode: code, data: json, at: index)
-            })
+        
+        try samples.forEach { code in
+            let result = try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
+            
+            XCTAssertEqual(result, [item1.model, item2.model])
         }
     }
     
