@@ -19,7 +19,7 @@ public final class FeedImageDataMapper {
             throw Error.invalidData
         }
         
-        return Data()
+        return data
     }
     
 }

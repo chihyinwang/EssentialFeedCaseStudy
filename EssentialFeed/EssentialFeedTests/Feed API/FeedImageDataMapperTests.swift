@@ -29,6 +29,12 @@ class FeedImageDataMapperTests: XCTestCase {
         )
     }
     
-    // MARK: - Helpers
+    func test_map_deliversReceivedNonEmptyDataOn200HTTPResponse() throws {
+        let nonEmptyData = Data("non-empty data".utf8)
+        
+        let result = try FeedImageDataMapper.map(nonEmptyData, from: HTTPURLResponse(statusCode: 200))
+        
+        XCTAssertEqual(result, nonEmptyData)
+    }
     
 }
