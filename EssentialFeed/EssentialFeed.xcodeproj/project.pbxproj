@@ -469,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				7242C53824DEA58F00547F09 /* FeedStoreSpy.swift */,
+				7275C41125188F010065142B /* FeedImageDataStoreSpy.swift */,
 				72DA20EA24E19911005F3BA2 /* FeedCacheTestHelpers.swift */,
 			);
 			path = Helpers;
@@ -666,7 +667,6 @@
 				72B257B824D80565004CC98B /* XCTestCase+MemoryLeakTracking.swift */,
 				72DA20EC24E19998005F3BA2 /* SharedScopeHelpers.swift */,
 				721921AF255FC4150093BDF1 /* SharedLocalizationTestHelpers.swift */,
-				7275C41125188F010065142B /* FeedImageDataStoreSpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
