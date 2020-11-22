@@ -13,7 +13,7 @@ class FeedItemsMapperTests: XCTestCase {
         
         try samples.forEach { code in
             XCTAssertThrowsError(
-                try FeedItemMapper.map(json, from: HTTPURLResponse(statusCode: code))
+                try FeedItemsMapper.map(json, from: HTTPURLResponse(statusCode: code))
             )
         }
     }
@@ -22,14 +22,14 @@ class FeedItemsMapperTests: XCTestCase {
         let invalidJSON = Data("Invalid JSON".utf8)
         
         XCTAssertThrowsError(
-            try FeedItemMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: 200))
+            try FeedItemsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: 200))
         )
     }
     
     func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
         let emptyListJSON = makeItemsJSON([])
         
-        let result = try FeedItemMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
+        let result = try FeedItemsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
 
         XCTAssertEqual(result, [])
     }
@@ -47,7 +47,7 @@ class FeedItemsMapperTests: XCTestCase {
         
         let json = makeItemsJSON([item1.json, item2.json])
         
-        let result = try FeedItemMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+        let result = try FeedItemsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 
         XCTAssertEqual(result, [item1.model, item2.model])
     }

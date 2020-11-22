@@ -55,7 +55,7 @@ class EssentialFeedAPIEndToEndTests: XCTestCase {
         client.get(from: feedTestServerURL) { result in
             receivedResult = result.flatMap { (data, response) in
                 do {
-                    return .success(try FeedItemMapper.map(data, from: response))
+                    return .success(try FeedItemsMapper.map(data, from: response))
                 } catch {
                     return .failure(error)
                 }
