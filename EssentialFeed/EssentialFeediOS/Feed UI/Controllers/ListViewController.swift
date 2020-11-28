@@ -1,8 +1,4 @@
 //
-//  FeedViewController.swift
-//  EssentialFeediOS
-//
-//  Created by chihyin wang on 2020/8/20.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
@@ -19,7 +15,7 @@ public protocol CellController {
     func cancelLoad()
 }
 
-public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
+public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     @IBOutlet private(set) public var errorView: ErrorView?
     
     private var loadingControllers = [IndexPath: CellController]()
