@@ -1,15 +1,17 @@
 //
-//  FeedViewController+TestHelpers.swift
-//  EssentialFeediOSTests
-//
-//  Created by chihyin wang on 2020/8/23.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
 import UIKit
 import EssentialFeediOS
 
-extension FeedViewController {
+extension ListViewController {
+    public override func loadViewIfNeeded() {
+        super.loadViewIfNeeded()
+        
+        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+    }
+    
     func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
@@ -48,8 +50,12 @@ extension FeedViewController {
         return simulateFeedImageViewVisible(at: index)?.renderedImage
     }
 
+    func simulateErrorViewTap() {
+        errorView.simulateTap()
+    }
+    
     var errorMessage: String? {
-        return errorView?.message
+        return errorView.message
     }
     
     var isShowingLoadingIndicator: Bool {
@@ -57,7 +63,7 @@ extension FeedViewController {
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
-        return tableView.numberOfRows(inSection: feedImagesSection)
+        return tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
     }
     
     func feedImageView(at row: Int) -> UITableViewCell? {
