@@ -62,6 +62,35 @@ extension ListViewController {
         return refreshControl?.isRefreshing == true
     }
     
+    func numberOfRenderedComments() -> Int {
+        return tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: commentsSection)
+    }
+    
+    func commentMessage(at index: Int) -> String? {
+        commentView(at: index)?.messageLabel.text
+    }
+    
+    func commentDate(at index: Int) -> String? {
+        commentView(at: index)?.dateLabel.text
+    }
+    
+    func commentUsername(at index: Int) -> String? {
+        commentView(at: index)?.usernameLabel.text
+    }
+    
+    private func commentView(at row: Int) -> ImageCommentCell? {
+        guard numberOfRenderedComments() > row else {
+            return nil
+        }
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: commentsSection)
+        return ds?.tableView(tableView, cellForRowAt: index) as? ImageCommentCell
+    }
+    
+    private var commentsSection: Int {
+        return 0
+    }
+    
     func numberOfRenderedFeedImageViews() -> Int {
         return tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
     }
