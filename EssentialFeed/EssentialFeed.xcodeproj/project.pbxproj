@@ -460,14 +460,6 @@
 			path = "Shared API Infra";
 			sourceTree = "<group>";
 		};
-		723847B2254FAFA900E8B7D1 /* Shared API */ = {
-			isa = PBXGroup;
-			children = (
-				723847B4254FAFBA00E8B7D1 /* Helpers */,
-			);
-			path = "Shared API";
-			sourceTree = "<group>";
-		};
 		723847B3254FAFB200E8B7D1 /* Shared API Infra */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,13 +467,6 @@
 				725DC16E24D6C60100D54A4F /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Shared API Infra";
-			sourceTree = "<group>";
-		};
-		723847B4254FAFBA00E8B7D1 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		723847B5254FAFE100E8B7D1 /* Helpers */ = {
@@ -586,7 +571,6 @@
 				725DC15224D2B04900D54A4F /* Info.plist */,
 				72B257B724D80545004CC98B /* Helpers */,
 				72616C86255CE2510030022E /* Shared Presentation */,
-				723847B2254FAFA900E8B7D1 /* Shared API */,
 				723847B3254FAFB200E8B7D1 /* Shared API Infra */,
 				72B257D124DBD1FF004CC98B /* Feed Cache */,
 				723847B7254FB0A200E8B7D1 /* Image Comments API */,
