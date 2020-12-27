@@ -123,6 +123,8 @@
 		72EDF7CF2560FDC4009F4A82 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EDF7CE2560FDC4009F4A82 /* ResourceErrorView.swift */; };
 		72F404282598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F404272598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift */; };
 		72F4042F2598E40300ABBBE1 /* ImageCommentsEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F4042E2598E40300ABBBE1 /* ImageCommentsEndpointTests.swift */; };
+		72F404362598E4B100ABBBE1 /* FeedEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F404352598E4B100ABBBE1 /* FeedEndpoint.swift */; };
+		72F4043D2598E50D00ABBBE1 /* FeedEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F4043C2598E50D00ABBBE1 /* FeedEndpointTests.swift */; };
 		72F5504824FA57390009B219 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F5504724FA57390009B219 /* Feed.storyboard */; };
 		72F5504A24FA579A0009B219 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F5504924FA579A0009B219 /* Feed.xcassets */; };
 /* End PBXBuildFile section */
@@ -305,6 +307,8 @@
 		72EDF7CE2560FDC4009F4A82 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 		72F404272598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsEndpoint.swift; sourceTree = "<group>"; };
 		72F4042E2598E40300ABBBE1 /* ImageCommentsEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsEndpointTests.swift; sourceTree = "<group>"; };
+		72F404352598E4B100ABBBE1 /* FeedEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedEndpoint.swift; sourceTree = "<group>"; };
+		72F4043C2598E50D00ABBBE1 /* FeedEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedEndpointTests.swift; sourceTree = "<group>"; };
 		72F5504724FA57390009B219 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		72F5504924FA579A0009B219 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -611,6 +615,7 @@
 				7275C406251261640065142B /* Helpers */,
 				725DC16B24D4D5E000D54A4F /* FeedItemsMapper.swift */,
 				72616C64255BE11F0030022E /* FeedItemDataMapper.swift */,
+				72F404352598E4B100ABBBE1 /* FeedEndpoint.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 			children = (
 				725DC16424D2BCBE00D54A4F /* FeedItemsMapperTests.swift */,
 				72616C56255BDF770030022E /* FeedImageDataMapperTests.swift */,
+				72F4043C2598E50D00ABBBE1 /* FeedEndpointTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -1190,6 +1196,7 @@
 				72358E31254B178D00268478 /* ImageCommentsMapper.swift in Sources */,
 				72616C95255CE3010030022E /* LoadResourcePresenter.swift in Sources */,
 				725DC15E24D2B0CD00D54A4F /* FeedImage.swift in Sources */,
+				72F404362598E4B100ABBBE1 /* FeedEndpoint.swift in Sources */,
 				72EAE385252F3F62004E37FE /* FeedImageDataCache.swift in Sources */,
 				72F404282598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift in Sources */,
 				7275C4102518887F0065142B /* FeedImageDataStore.swift in Sources */,
@@ -1240,6 +1247,7 @@
 				7279E89F24E57955007F8D74 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				7242C53624DE9E2B00547F09 /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
 				72616C57255BDF770030022E /* FeedImageDataMapperTests.swift in Sources */,
+				72F4043D2598E50D00ABBBE1 /* FeedEndpointTests.swift in Sources */,
 				7279E89B24E5735F007F8D74 /* FeedStoreSpecs.swift in Sources */,
 				72616C88255CE26D0030022E /* LoadResourcePresenterTests.swift in Sources */,
 				72B257B924D80565004CC98B /* XCTestCase+MemoryLeakTracking.swift in Sources */,
