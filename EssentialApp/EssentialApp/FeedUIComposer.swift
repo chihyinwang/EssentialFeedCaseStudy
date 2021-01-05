@@ -1,8 +1,4 @@
 //
-//  FeedUIComposer.swift
-//  EssentialFeediOS
-//
-//  Created by chihyin wang on 2020/8/23.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
