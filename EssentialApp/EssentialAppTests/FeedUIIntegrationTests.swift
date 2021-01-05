@@ -1,8 +1,4 @@
 //
-//  FeedUIIntegrationTests.swift
-//  EssentialFeediOSTests
-//
-//  Created by chihyin wang on 2020/8/20.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 

@@ -1,8 +1,4 @@
 //
-//  SceneDelegateTests.swift
-//  EssentialAppTests
-//
-//  Created by chihyin wang on 2020/10/11.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 

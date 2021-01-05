@@ -19,7 +19,6 @@
 		723C407E2528A100004245D8 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C407D2528A100004245D8 /* SharedTestHelpers.swift */; };
 		72989384252376EC00B1E002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72989383252376EC00B1E002 /* AppDelegate.swift */; };
 		72989386252376EC00B1E002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72989385252376EC00B1E002 /* SceneDelegate.swift */; };
-		72989388252376EC00B1E002 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72989387252376EC00B1E002 /* ViewController.swift */; };
 		7298938D252376ED00B1E002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7298938C252376ED00B1E002 /* Assets.xcassets */; };
 		72989390252376ED00B1E002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7298938E252376ED00B1E002 /* LaunchScreen.storyboard */; };
 		72DE22E9258A0ABF002CC3DE /* CommentsUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE22E8258A0ABF002CC3DE /* CommentsUIIntegrationTests.swift */; };
@@ -80,7 +79,6 @@
 		72989380252376EC00B1E002 /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72989383252376EC00B1E002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72989385252376EC00B1E002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		72989387252376EC00B1E002 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7298938C252376ED00B1E002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7298938F252376ED00B1E002 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72989391252376ED00B1E002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				72EAE39D25334146004E37FE /* WeakRefVirtualProxy.swift */,
 				72EAE3A025334146004E37FE /* LoadResourcePresentationAdapter.swift */,
 				72EAE39C25334146004E37FE /* FeedViewAdapter.swift */,
-				72989387252376EC00B1E002 /* ViewController.swift */,
 				7298938C252376ED00B1E002 /* Assets.xcassets */,
 				7298938E252376ED00B1E002 /* LaunchScreen.storyboard */,
 				72989391252376ED00B1E002 /* Info.plist */,
@@ -319,7 +316,6 @@
 				72EAE3A725334146004E37FE /* FeedViewAdapter.swift in Sources */,
 				72358E2B2542D1E600268478 /* CombineHelpers.swift in Sources */,
 				72EAE3A425334146004E37FE /* WeakRefVirtualProxy.swift in Sources */,
-				72989388252376EC00B1E002 /* ViewController.swift in Sources */,
 				72DE22ED258A0BA8002CC3DE /* CommentsUIComposer.swift in Sources */,
 				72989384252376EC00B1E002 /* AppDelegate.swift in Sources */,
 				72989386252376EC00B1E002 /* SceneDelegate.swift in Sources */,
