@@ -119,6 +119,10 @@
 		72DA20ED24E19998005F3BA2 /* SharedScopeHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20EC24E19998005F3BA2 /* SharedScopeHelpers.swift */; };
 		72DA20EF24E275DA005F3BA2 /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */; };
 		72DABC322584965F00F698F7 /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DABC312584965F00F698F7 /* UIView+Container.swift */; };
+		72E9A37625A7631C00A00BD1 /* LoadMoreCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9A37525A7631C00A00BD1 /* LoadMoreCellController.swift */; };
+		72E9A37E25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 72E9A37C25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_dark.png */; };
+		72E9A37F25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 72E9A37D25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_light.png */; };
+		72E9A38B25A765FE00A00BD1 /* LoadMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9A38A25A765FE00A00BD1 /* LoadMoreCell.swift */; };
 		72EAE385252F3F62004E37FE /* FeedImageDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EAE384252F3F62004E37FE /* FeedImageDataCache.swift */; };
 		72EDF7CF2560FDC4009F4A82 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EDF7CE2560FDC4009F4A82 /* ResourceErrorView.swift */; };
 		72F404282598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F404272598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift */; };
@@ -303,6 +307,10 @@
 		72DA20EC24E19998005F3BA2 /* SharedScopeHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedScopeHelpers.swift; sourceTree = "<group>"; };
 		72DA20EE24E275DA005F3BA2 /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
 		72DABC312584965F00F698F7 /* UIView+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
+		72E9A37525A7631C00A00BD1 /* LoadMoreCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCellController.swift; sourceTree = "<group>"; };
+		72E9A37C25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FEED_WITH_LOAD_MORE_INDICATOR_dark.png; sourceTree = "<group>"; };
+		72E9A37D25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FEED_WITH_LOAD_MORE_INDICATOR_light.png; sourceTree = "<group>"; };
+		72E9A38A25A765FE00A00BD1 /* LoadMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreCell.swift; sourceTree = "<group>"; };
 		72EAE384252F3F62004E37FE /* FeedImageDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataCache.swift; sourceTree = "<group>"; };
 		72EDF7CE2560FDC4009F4A82 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 		72F404272598DFEC00ABBBE1 /* ImageCommentsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCommentsEndpoint.swift; sourceTree = "<group>"; };
@@ -691,6 +699,8 @@
 				72623D532573416D004AC4EC /* FEED_WITH_CONTENT_light.png */,
 				72623D542573416D004AC4EC /* FEED_WITH_FAILED_IMAGE_LOADING_light.png */,
 				72D33B432582084800458E4F /* FEED_WITH_CONTENT_light_extraExtraExtraLarge.png */,
+				72E9A37C25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_dark.png */,
+				72E9A37D25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_light.png */,
 			);
 			path = snapshots;
 			sourceTree = "<group>";
@@ -776,6 +786,7 @@
 			isa = PBXGroup;
 			children = (
 				7214495D24F226AC00D46D33 /* FeedImageCellController.swift */,
+				72E9A37525A7631C00A00BD1 /* LoadMoreCellController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -787,6 +798,7 @@
 				72A4BB1924EFC03C00843F7A /* FeedImageCell.swift */,
 				72F5504724FA57390009B219 /* Feed.storyboard */,
 				72F5504924FA579A0009B219 /* Feed.xcassets */,
+				72E9A38A25A765FE00A00BD1 /* LoadMoreCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1123,10 +1135,12 @@
 			files = (
 				72623D5C2573416D004AC4EC /* FEED_WITH_FAILED_IMAGE_LOADING_light.png in Resources */,
 				72623D5E2573416D004AC4EC /* EMPTY_LIST_dark.png in Resources */,
+				72E9A37F25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_light.png in Resources */,
 				72623D5A2573416D004AC4EC /* EMPTY_LIST_light.png in Resources */,
 				72623D572573416D004AC4EC /* LIST_WITH_ERROR_MESSAGE_dark.png in Resources */,
 				72B63AEB25778B340031017C /* IMAGE_COMMENTS_light.png in Resources */,
 				72623D592573416D004AC4EC /* FEED_WITH_CONTENT_dark.png in Resources */,
+				72E9A37E25A7637900A00BD1 /* FEED_WITH_LOAD_MORE_INDICATOR_dark.png in Resources */,
 				72623D5B2573416D004AC4EC /* FEED_WITH_CONTENT_light.png in Resources */,
 				72623D5D2573416D004AC4EC /* LIST_WITH_ERROR_MESSAGE_light.png in Resources */,
 				72623D582573416D004AC4EC /* FEED_WITH_FAILED_IMAGE_LOADING_dark.png in Resources */,
@@ -1247,7 +1261,9 @@
 				72358E212539E0E700268478 /* UITableView+HeaderSizing.swift in Sources */,
 				722603DA250391950033E8C9 /* ErrorView.swift in Sources */,
 				72A4BB1C24F01FA300843F7A /* UIView+Shimmering.swift in Sources */,
+				72E9A38B25A765FE00A00BD1 /* LoadMoreCell.swift in Sources */,
 				72DABC322584965F00F698F7 /* UIView+Container.swift in Sources */,
+				72E9A37625A7631C00A00BD1 /* LoadMoreCellController.swift in Sources */,
 				724B4069257D106D00ECF0FA /* CellController.swift in Sources */,
 				72A4BB1524EE7B5A00843F7A /* ListViewController.swift in Sources */,
 				722603DF250643E00033E8C9 /* UIRefreshContorl+Helpers.swift in Sources */,
