@@ -14,20 +14,20 @@ extension FeedUIIntegrationTests {
         
         // MARK: - FeedLoader
         
-        private var feedRequests = [PassthroughSubject<[FeedImage], Error>]()
+        private var feedRequests = [PassthroughSubject<Paginated<FeedImage>, Error>]()
         
         var loadFeedCallCount: Int {
             return feedRequests.count
         }
         
-        func loadPublisher() -> AnyPublisher<[FeedImage], Error> {
-            let publisher = PassthroughSubject<[FeedImage], Error>()
+        func loadPublisher() -> AnyPublisher<Paginated<FeedImage>, Error> {
+            let publisher = PassthroughSubject<Paginated<FeedImage>, Error>()
             feedRequests.append(publisher)
             return publisher.eraseToAnyPublisher()
         }
         
         func completeFeedLoading(with feed: [FeedImage] = [], at index: Int) {
-            feedRequests[index].send(feed)
+            feedRequests[index].send(Paginated(items: feed))
         }
         
         func completeFeedLoadingWithError(at index: Int = 0) {
