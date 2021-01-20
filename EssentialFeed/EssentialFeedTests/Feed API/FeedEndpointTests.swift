@@ -27,6 +27,7 @@ class FeedEndpointTests: XCTestCase {
         XCTAssertEqual(received.scheme, "http", "scheme")
         XCTAssertEqual(received.host, "base-url.com", "host")
         XCTAssertEqual(received.path, "/v1/feed", "path")
-        XCTAssertEqual(received.query, "limit=10&after_id=\(image.id)", "query")
+        XCTAssertEqual(received.query?.contains("limit=10"), true, "limit query param")
+        XCTAssertEqual(received.query?.contains("after_id=\(image.id)"), true, "after_id query param")
     }
 }
