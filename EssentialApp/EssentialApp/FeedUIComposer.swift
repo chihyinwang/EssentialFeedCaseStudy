@@ -1,8 +1,4 @@
 //
-//  FeedUIComposer.swift
-//  EssentialFeediOS
-//
-//  Created by chihyin wang on 2020/8/23.
 //  Copyright © 2020 chihyinwang. All rights reserved.
 //
 
@@ -14,10 +10,10 @@ import EssentialFeediOS
 public final class FeedUIComposer {
     private init() {}
     
-    private typealias FeedPresentationAdapter = LoadResourcePresentationAdapter<[FeedImage], FeedViewAdapter>
+    private typealias FeedPresentationAdapter = LoadResourcePresentationAdapter<Paginated<FeedImage>, FeedViewAdapter>
     
     public static func feedComposedWith(
-        feedLoader: @escaping () -> AnyPublisher<[FeedImage], Error>,
+        feedLoader: @escaping () -> AnyPublisher<Paginated<FeedImage>, Error>,
         imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher,
         selection: @escaping (FeedImage) -> Void = { _ in }
     ) -> ListViewController {
@@ -32,8 +28,7 @@ public final class FeedUIComposer {
                 imageLoader: imageLoader,
                 selection: selection),
             loadingView: WeakRefVirtualProxy(feedController),
-            errorView: WeakRefVirtualProxy(feedController),
-            mapper: FeedPresenter.map)
+            errorView: WeakRefVirtualProxy(feedController))
         
         return feedController
     }
