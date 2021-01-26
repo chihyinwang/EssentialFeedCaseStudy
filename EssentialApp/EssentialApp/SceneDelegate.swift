@@ -123,6 +123,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         return localImageLoader
             .loadImageDataPublisher(from: url)
+            .logCacheMisses(url: url, logger: logger)
             .fallback(to: { [httpClient, logger] in
                 httpClient
                     .getPublisher(from: url)
@@ -135,6 +136,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension Publisher {
+    func logCacheMisses(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
+        return handleEvents(
+            receiveCompletion: { (result) in
+                if case .failure = result {
+                    logger.trace("Cache miss to load url: \(url)")
+                }
+            }).eraseToAnyPublisher()
+    }
+    
     func logErrors(url: URL, logger: Logger) -> AnyPublisher<Output, Failure> {
         return handleEvents(
             receiveCompletion: { (result) in
