@@ -27,8 +27,13 @@ class CommentsUIIntegrationTests: XCTestCase {
         XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected a loading request after view is loaded")
         
         sut.simulateUserInitiatedReload()
+        XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected no request until previous completes")
+        
+        loader.completeCommentsLoading(at: 0)
+        sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadCommentsCallCount, 2, "Expected another loading request after user initiates a load")
         
+        loader.completeCommentsLoading(at: 1 )
         sut.simulateUserInitiatedReload()
         XCTAssertEqual(loader.loadCommentsCallCount, 3, "Expected a third loading request after user initiates another load")
     }
@@ -195,6 +200,7 @@ class CommentsUIIntegrationTests: XCTestCase {
         
         func completeCommentsLoading(with comment: [ImageComment] = [], at index: Int) {
             requests[index].send(comment)
+            requests[index].send(completion: .finished)
         }
         
         func completeCommentsLoadingWithError(at index: Int = 0) {
