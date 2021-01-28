@@ -17,7 +17,7 @@ class FeedUIIntegrationTests: XCTestCase {
         
         XCTAssertEqual(sut.title, feedTitle)
     }
- 
+    
     func test_imageSelection_notifiesHandler() {
         let image0 = makeImage()
         let image1 = makeImage()
@@ -75,7 +75,7 @@ class FeedUIIntegrationTests: XCTestCase {
         let image1 = makeImage(description: nil, location: "another location")
         let image2 = makeImage(description: "another description", location: nil)
         let image3 = makeImage(description: nil, location: nil)
-
+        
         sut.loadViewIfNeeded()
         assertThat(sut, isRendering: [])
         
@@ -95,7 +95,7 @@ class FeedUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
         let image0 = makeImage()
         let image1 = makeImage()
-
+        
         sut.loadViewIfNeeded()
         loader.completeFeedLoading(with: [image0], at: 0)
         assertThat(sut, isRendering: [image0])
@@ -140,7 +140,7 @@ class FeedUIIntegrationTests: XCTestCase {
     
     func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
         let (sut, loader) = makeSUT()
-
+        
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.errorMessage, nil)
@@ -154,7 +154,7 @@ class FeedUIIntegrationTests: XCTestCase {
     
     func test_tapOnErrorView_hideErrorMessage() {
         let (sut, loader) = makeSUT()
-
+        
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.errorMessage, nil)
@@ -255,12 +255,12 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateTapOnLoadMoreFeedError()
         XCTAssertEqual(loader.loadMoreCallCount, 1)
-
+        
         loader.completeLoadMoreWithError()
         sut.simulateTapOnLoadMoreFeedError()
         XCTAssertEqual(loader.loadMoreCallCount, 2)
     }
-
+    
     // MARK: - Image View Tests
     
     func test_feedImageView_loadsImageURLWhenVisible() {
@@ -395,7 +395,7 @@ class FeedUIIntegrationTests: XCTestCase {
         view1?.simulateRetryAction()
         XCTAssertEqual(loader.loadedImageURLs, [image0.url, image1.url, image0.url, image1.url], "Expected fourth imageURL request after second view retry action")
     }
-
+    
     func test_feedImageView_preloadsImageURLWhenNearVisible() {
         let image0 = makeImage(url: URL(string: "http://url-0.com")!)
         let image1 = makeImage(url: URL(string: "http://url-1.com")!)
@@ -411,7 +411,7 @@ class FeedUIIntegrationTests: XCTestCase {
         sut.simulateFeedImageViewNearVisible(at: 1)
         XCTAssertEqual(loader.loadedImageURLs, [image0.url, image1.url], "Expected second image URL request once second image is near visible")
     }
-
+    
     func test_feedImageView_cancelsImageURLPreloadingWhenNotNearVisibleAnymore() {
         let image0 = makeImage(url: URL(string: "http://url-0.com")!)
         let image1 = makeImage(url: URL(string: "http://url-1.com")!)

@@ -18,7 +18,7 @@ class CommentsUIIntegrationTests: XCTestCase {
         
         XCTAssertEqual(sut.title, commentsTitle)
     }
- 
+    
     func test_loadCommentsActions_requestsCommentsFromLoader() {
         let (sut, loader) = makeSUT()
         XCTAssertEqual(loader.loadCommentsCallCount, 0, "Expected no loading requests before view is loaded")
@@ -73,7 +73,7 @@ class CommentsUIIntegrationTests: XCTestCase {
     func test_loadCommentsCompletion_rendersSuccessfullyLoadedEmptyCommentsAfterNonEmptyComments() {
         let (sut, loader) = makeSUT()
         let comment = makeComment()
-
+        
         sut.loadViewIfNeeded()
         loader.completeCommentsLoading(with: [comment], at: 0)
         assertThat(sut, isRendering: [comment])
@@ -110,7 +110,7 @@ class CommentsUIIntegrationTests: XCTestCase {
     
     func test_loadCommentsCompletion_rendersErrorMessageOnErrorUntilNextReload() {
         let (sut, loader) = makeSUT()
-
+        
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.errorMessage, nil)
@@ -124,7 +124,7 @@ class CommentsUIIntegrationTests: XCTestCase {
     
     func test_tapOnErrorView_hideErrorMessage() {
         let (sut, loader) = makeSUT()
-
+        
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.errorMessage, nil)
