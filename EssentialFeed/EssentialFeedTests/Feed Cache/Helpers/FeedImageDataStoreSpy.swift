@@ -29,11 +29,11 @@ class FeedImageDataStoreSpy: FeedImageDataStore {
         return try retrievalResult?.get()
     }
     
-    func completeWithError(_ error: Error, at index: Int = 0) {
+    func completeRetrieval(with error: Error) {
         retrievalResult = .failure(error)
     }
     
-    func complete(with data: Data?, at index: Int = 0) {
+    func completeRetrieval(with data: Data?) {
         retrievalResult = .success(data)
     }
     

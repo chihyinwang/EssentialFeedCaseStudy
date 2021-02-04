@@ -31,7 +31,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         
         expect(sut, toCompleteWith: failed(), when: {
             let error = anyNSError()
-            store.completeWithError(error)
+            store.completeRetrieval(with: error)
         })
     }
     
@@ -39,7 +39,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         
         expect(sut, toCompleteWith: notFound(), when: {
-            store.complete(with: .none)
+            store.completeRetrieval(with: .none)
         })
     }
     
@@ -48,7 +48,7 @@ class LoadFeedImageDataFromCacheUseCaseTests: XCTestCase {
         let foundData = anyData()
         
         expect(sut, toCompleteWith: .success(foundData), when: {
-            store.complete(with: foundData)
+            store.completeRetrieval(with: foundData)
         })
     }
         
